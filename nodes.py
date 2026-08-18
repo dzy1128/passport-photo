@@ -10,8 +10,8 @@ INPUT_WIDTH = 1040
 INPUT_HEIGHT = 1560
 CROP_HEIGHT = 1456
 CROP_TOP = 52
-OUTPUT_WIDTH = 1200
-OUTPUT_HEIGHT = 1800
+OUTPUT_WIDTH = 1040
+OUTPUT_HEIGHT = 1560
 MIN_VERTICAL_OFFSET = -52
 MAX_VERTICAL_OFFSET = 52
 
@@ -26,22 +26,22 @@ class LayoutSpec:
 
 
 ONE_INCH_LAYOUT = LayoutSpec(
-    tile_width=295,
-    tile_height=413,
+    tile_width=256,
+    tile_height=358,
     positions=tuple(
         (x, y)
-        for y in (38, 475, 912, 1349)
-        for x in (133, 452, 771)
+        for y in (28, 410, 792, 1174)
+        for x in (112, 392, 672)
     ),
 )
 
 TWO_INCH_LAYOUT = LayoutSpec(
-    tile_width=413,
-    tile_height=579,
+    tile_width=358,
+    tile_height=502,
     positions=tuple(
         (x, y)
-        for y in (303, 918)
-        for x in (169, 618)
+        for y in (262, 796)
+        for x in (146, 536)
     ),
 )
 

@@ -56,16 +56,16 @@ def test_one_inch_gutters_are_white():
     output = PassportPhotoOneInchSheet().layout(_solid_image())[0]
 
     # Horizontal gutter between the first two columns.
-    assert torch.all(output[:, 38:451, 428:452, :] == 1.0)
+    assert torch.all(output[:, 28:386, 368:392, :] == 1.0)
     # Vertical gutter between the first two rows.
-    assert torch.all(output[:, 451:475, 133:428, :] == 1.0)
+    assert torch.all(output[:, 386:410, 112:368, :] == 1.0)
 
 
 def test_two_inch_gutters_are_white():
     output = PassportPhotoTwoInchSheet().layout(_solid_image())[0]
 
-    assert torch.all(output[:, 303:882, 582:618, :] == 1.0)
-    assert torch.all(output[:, 882:918, 169:582, :] == 1.0)
+    assert torch.all(output[:, 262:764, 504:536, :] == 1.0)
+    assert torch.all(output[:, 764:796, 146:504, :] == 1.0)
 
 
 def test_batch_is_preserved():
@@ -73,8 +73,8 @@ def test_batch_is_preserved():
     output = PassportPhotoTwoInchSheet().layout(image)[0]
 
     assert output.shape[0] == 2
-    assert torch.allclose(output[0, 303, 169], torch.tensor([1.0, 0.0, 0.0]))
-    assert torch.allclose(output[1, 303, 169], torch.tensor([0.0, 1.0, 0.0]))
+    assert torch.allclose(output[0, 262, 146], torch.tensor([1.0, 0.0, 0.0]))
+    assert torch.allclose(output[1, 262, 146], torch.tensor([0.0, 1.0, 0.0]))
 
 
 def test_vertical_offset_changes_crop_before_layout():
@@ -84,7 +84,7 @@ def test_vertical_offset_changes_crop_before_layout():
     centered = PassportPhotoOneInchSheet().layout(source, vertical_offset=0)[0]
     shifted = PassportPhotoOneInchSheet().layout(source, vertical_offset=52)[0]
 
-    assert shifted[0, 38, 133, 0] > centered[0, 38, 133, 0]
+    assert shifted[0, 28, 112, 0] > centered[0, 28, 112, 0]
 
 
 @pytest.mark.parametrize(
