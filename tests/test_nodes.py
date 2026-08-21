@@ -56,9 +56,9 @@ def test_one_inch_gutters_are_white():
     output = PassportPhotoOneInchSheet().layout(_solid_image())[0]
 
     # Horizontal gutter between the first two columns.
-    assert torch.all(output[:, 28:386, 368:392, :] == 1.0)
+    assert torch.all(output[:, 28:386, 330:354, :] == 1.0)
     # Vertical gutter between the first two rows.
-    assert torch.all(output[:, 386:410, 112:368, :] == 1.0)
+    assert torch.all(output[:, 386:410, 74:330, :] == 1.0)
 
 
 def test_two_inch_gutters_are_white():

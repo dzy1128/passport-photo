@@ -31,7 +31,7 @@ ONE_INCH_LAYOUT = LayoutSpec(
     positions=tuple(
         (x, y)
         for y in (28, 410, 792, 1174)
-        for x in (112, 392, 672)
+        for x in (74, 354, 634)
     ),
 )
 
