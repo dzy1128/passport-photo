@@ -4,10 +4,22 @@
 
 ## 节点
 
-- `One-Inch Passport Photo Sheet (12)`：25x35 mm，256x358 px，3列x4行。
-- `Two-Inch Passport Photo Sheet (4)`：35x49 mm，358x502 px，2列x2行。
+- `One-Inch Passport Photo Sheet (12)`：25x35 mm，256x358 px，3列x4行，底图白色。
+- `Two-Inch Passport Photo Sheet (4)`：35x49 mm，358x502 px，2列x2行，底图白色。
+- `One-Inch Passport Photo Sheet (12, Custom Background)`：排版同上，底图颜色可自定义。
+- `Two-Inch Passport Photo Sheet (4, Custom Background)`：排版同上，底图颜色可自定义。
 
-两个节点都接收 `IMAGE` 和 `vertical_offset`，输出一张 `1040x1560` 的 RGB `IMAGE`。照片之间保留白色间隔，便于裁剪。
+所有节点都接收 `IMAGE` 和 `vertical_offset`，输出一张 `1040x1560` 的 RGB `IMAGE`。照片之间保留间隔，便于裁剪。
+
+## 自定义背景色
+
+带 `Custom Background` 的两个节点多出三个输入，用来控制底图（照片之间的间隔和四周留白）的颜色，证件照本身的背景不受影响。
+
+- `background_mode`：`hex` 或 `rgb`，决定读取下面哪一个输入框，另一个会被忽略。
+- `background_hex`：`#RRGGBB` 或 `#RGB`，`#` 可省略，默认 `#FFFFFF`。
+- `background_rgb`：三个 `0-255` 的整数，逗号或空格分隔，默认 `255, 255, 255`。
+
+填写格式不合法时节点会报错，而不是悄悄回退到白色。
 
 ## vertical_offset
 
